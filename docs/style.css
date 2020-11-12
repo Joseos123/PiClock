@@ -27,11 +27,15 @@ body {
   min-width: 780px;
 }
 
-.hours,
-.minutes {
+.hours {
   width: 260px;
   position: relative;
   float: left;
+}
+.minutes {
+  width: 260px;
+  position: relative;
+  float: right;
 }
 .hours:before, .hours:after {
   content: '';
