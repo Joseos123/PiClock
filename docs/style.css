@@ -33,8 +33,7 @@ body {
   position: relative;
   float: left;
 }
-.hours:before, .hours:after,
-.minutes:before {
+.hours:before, .hours:after {
   content: '';
   display: block;
   width: 10px;
@@ -45,8 +44,7 @@ body {
   -webkit-animation: pulse 1s infinite;
           animation: pulse 1s infinite;
 }
-.hours:before,
-.minutes:before {
+.hours:before {
   top: calc(50% - 10px);
   right: 10px;
 }
