@@ -1,6 +1,5 @@
 html,
 body {
-  height: 100%;
   width: 100%;
   position: center;
 }
@@ -25,16 +24,16 @@ body {
   -webkit-perspective: 600px;
           perspective: 600px;
   position: relative;
-  min-width: 780px;
+  min-width: 100%;
 }
 
 .hours {
-  width: 260px;
+  width: 48%;
   position: relative;
   float: left;
 }
 .minutes {
-  width: 260px;
+  width: 48%;
   position: relative;
   float: right;
 }
