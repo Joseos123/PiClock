@@ -1,0 +1,506 @@
+html,
+body {
+  height: 100%;
+  position: relative;
+}
+
+body {
+  background: #121212;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+.clock {
+  -webkit-perspective: 600px;
+          perspective: 600px;
+  position: relative;
+  min-width: 780px;
+}
+
+.hours,
+.minutes {
+  width: 260px;
+  position: relative;
+  float: left;
+}
+.hours:before, .hours:after,
+.minutes:before,
+.minutes:after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 100%;
+  position: absolute;
+  -webkit-animation: pulse 1s infinite;
+          animation: pulse 1s infinite;
+}
+.hours:before,
+.minutes:before {
+  top: calc(50% - 10px);
+  right: 10px;
+}
+.hours:after,
+.minutes:after {
+  top: calc(50% + 10px);
+  right: 10px;
+}
+
+.seconds {
+  width: 260px;
+  position: relative;
+  float: left;
+}
+
+.digit {
+  width: 110px;
+  height: 160px;
+  position: relative;
+  float: left;
+  padding: 0 5px;
+}
+.digit .card {
+  width: 110px;
+  height: 80px;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  position: relative;
+  -webkit-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: all ease 1000ms;
+  transition: all ease 1000ms;
+}
+.digit .card:nth-of-type(1) {
+  z-index: 10;
+}
+.digit .card:nth-of-type(2) {
+  z-index: 9;
+}
+.digit .card:nth-of-type(3) {
+  z-index: 8;
+}
+.digit .card:nth-of-type(4) {
+  z-index: 7;
+}
+.digit .card:nth-of-type(5) {
+  z-index: 6;
+}
+.digit .card:nth-of-type(6) {
+  z-index: 5;
+}
+.digit .card:nth-of-type(7) {
+  z-index: 4;
+}
+.digit .card:nth-of-type(8) {
+  z-index: 3;
+}
+.digit .card:nth-of-type(9) {
+  z-index: 2;
+}
+.digit .card:nth-of-type(10) {
+  z-index: 1;
+}
+.digit .face {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110px;
+  height: 80px;
+  overflow: hidden;
+}
+.digit .face p {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  color: #fff;
+  font-size: 180px;
+  font-weight: bold;
+  position: absolute;
+  line-height: 200px;
+  padding: 0 10px;
+  margin: 0;
+  left: 0;
+  text-shadow: 0 0 5px #424242;
+}
+.digit .front {
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(40%, #323232), to(#424242));
+  background: linear-gradient(0deg, #323232 40%, #424242);
+  border-radius: 6px 6px 0 0;
+  z-index: 2;
+  -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
+}
+.digit .front p {
+  top: -15px;
+}
+.digit .front:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(98%, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.3)));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 98%, rgba(0, 0, 0, 0.3));
+}
+.digit .back {
+  background: linear-gradient(-170deg, #323232 55%, #212121);
+  border-radius: 0 0 6px 6px;
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+.digit .back p {
+  top: -95px;
+}
+.digit .back:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(7deg, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0.15));
+}
+.digit.zero .card-0 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: 10;
+}
+.digit.one .card-0 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.one .card-1 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: 10;
+}
+.digit.two .card-0 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.two .card-1 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.two .card-2 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: 10;
+}
+.digit.three .card-0 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.three .card-1 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.three .card-2 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.three .card-3 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: 10;
+}
+.digit.four .card-0 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.four .card-1 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.four .card-2 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.four .card-3 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.four .card-4 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: 10;
+}
+.digit.five .card-0 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.five .card-1 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.five .card-2 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.five .card-3 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.five .card-4 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.five .card-5 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: 10;
+}
+.digit.six .card-0 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.six .card-1 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.six .card-2 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.six .card-3 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.six .card-4 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.six .card-5 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.six .card-6 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: 10;
+}
+.digit.seven .card-0 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.seven .card-1 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.seven .card-2 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.seven .card-3 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.seven .card-4 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.seven .card-5 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.seven .card-6 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.seven .card-7 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: 10;
+}
+.digit.eight .card-0 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.eight .card-1 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.eight .card-2 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.eight .card-3 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.eight .card-4 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.eight .card-5 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.eight .card-6 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.eight .card-7 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.eight .card-8 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: 10;
+}
+.digit.nine .card-0 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.nine .card-1 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.nine .card-2 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.nine .card-3 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.nine .card-4 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.nine .card-5 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.nine .card-6 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.nine .card-7 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.nine .card-8 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: -1;
+}
+.digit.nine .card-9 {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  z-index: 10;
+}
+
+@-webkit-keyframes pulse {
+  0%,100% {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@keyframes pulse {
+  0%,100% {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+@media screen and (max-width: 800px) {
+  .clock {
+    min-width: 400px;
+  }
+
+  .hours,
+  .minutes,
+  .seconds {
+    width: 200px;
+  }
+
+  .digit {
+    width: 80px;
+    height: 130px;
+  }
+  .digit .card {
+    width: 80px;
+    height: 65px;
+  }
+  .digit .card .face {
+    width: 80px;
+    height: 65px;
+  }
+  .digit .card .face p {
+    font-size: 160px;
+    padding: 0;
+  }
+  .digit .card .front p {
+    top: -30px;
+  }
+}
