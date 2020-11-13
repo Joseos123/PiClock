@@ -9,7 +9,7 @@ function updateDate() {
   currentDate = new Date();
   currentHours = currentDate.getHours();
   if (currentHours > 13) {
-    currentHours = '12' - currentHours;
+    currentHours = currentHours - '12';
   }
   currentMinutes = currentDate.getMinutes();
   if (currentMinutes < 10) {
