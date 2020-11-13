@@ -8,11 +8,11 @@ var currentDate,
 function updateDate() {
   currentDate = new Date();
   currentHours = currentDate.getHours();
- if (currentHours < 10) {
-    currentHours = '0' + currentHours;
-  }
    if (currentHours > 13) {
     currentHours = '12' - currentHours;
+  }
+     if (currentHours < 13) {
+    currentHours = '0' + currentHours;
   }
   currentMinutes = currentDate.getMinutes();
   if (currentMinutes < 10) {
