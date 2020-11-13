@@ -29,12 +29,12 @@ body {
 }
 
 .hours {
-  width: 48%;
+  width: 50%;
   position: relative;
   float: left;
 }
 .minutes {
-  width: 48%;
+  width: 50%;
   position: relative;
   float: right;
 }
